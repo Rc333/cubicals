@@ -1,3 +1,38 @@
+
+<html>
+<head>
+<style>
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th {
+    background-color: black;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
 <?php
 
 
@@ -29,13 +64,39 @@ foreach ($x->childNodes AS $item) {
   print $item->firstname . " = " . $item->cubical_id . "<br>";
 } */
 
- if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "cubical_id: " . $row["cubical_id"]. " -> " . $row["firstname"]. "<br>";
+while($row = $result->fetch_assoc()) {
+        //echo "cubical_id: " . $row["cubical_id"]. " -> " . $row["firstname"]. "<br>";
 		$id = $row["cubical_id"];
 		$name = $row["firstname"];
-    }
+    } 
+
+	
+	
+ if ($result->num_rows > 0) {
+	 
+	 echo "<table>";
+	 //echo "<tr><th>",cubical,"</th></tr>";
+	 //while($row = $result->fetch_assoc()){
+		 for( $i=1; $i<=40; ){
+			//echo "x<br>";
+			echo "<br>";
+			echo "<tr>";
+			for( $j=1; $j<=5; $i++,$j++){
+				echo "<td>","$i&nbsp$name","</td>";
+			}
+			echo "</tr>";
+		}
+	 echo "</table>";
+	 //}
+	 if($id == $i){
+		 $i = $name;
+	 }
+	 
+
+	 
+	 
+    // output data of each row
+   
 } else {
     echo "0 results";
 } 
@@ -46,9 +107,5 @@ $conn->close();
 
 
 
-<?php
-//echo $name. "->" .$id;
-
-//<?php$name. "->" .$id;?>
 
 

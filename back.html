@@ -1,12 +1,34 @@
 <html>
 <head>
+
+<script>
+function cubicaldata1() {
+//alert("Page is loaded");
+    
+    var xmlhttp = new XMLHttpRequest();    
+    xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("body1").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("POST","formdataRetreive.php",true);
+        xmlhttp.send();
+    
+}
+</script>
+
+
+
 </head>
-<body>
-
+<body onload = "cubicaldata1()" id="body1">
+<!-- <div id="body1">
 <h1> Click for cubical information</h1>
-<form action="formdataRetreive.php" method="post">
+<div>
+<button onclick="cubicaldata1()">Click me</button>
+<div>
+Update
+<div> -->
 
-<input type="submit" value="Click here">
-</form>
+
 </body>
 </html>
